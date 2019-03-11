@@ -11,8 +11,8 @@ const getUsersAndFollowers = async filePath => {
   return await readFileData(filePath);
 };
 
-const getUsers = userAndFollowers => {
-  const userDataArr = userAndFollowers
+const getAllUniqueUsers = userAndFollowersData => {
+  const userDataArr = userAndFollowersData
     .replace(/follows/gi, '\n')
     .replace(/,/gi, '\n')
     .replace(/ /gi, '')
@@ -23,7 +23,22 @@ const getUsers = userAndFollowers => {
   return Array.from(removeDuplicates);
 };
 
+const getListOfUsersAndFollows = userAndFollowersData => {
+  const userDataArr = userAndFollowersData.split('\n').map(user => {
+    const userArr = user.split('follows');
+    if (userArr.length > 1) {
+      const userObj = {};
+      userObj[userArr[0].trim()] = userArr[1].trim().split(',');
+      return userObj;
+    }
+    return { '': '' };
+  });
+  const removeDuplicates = new Set(userDataArr);
+  console.log(removeDuplicates);
+};
+
 module.exports = {
   getUsersAndFollowers,
-  getUsers,
+  getAllUniqueUsers,
+  getListOfUsersAndFollows,
 };
