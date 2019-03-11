@@ -3,6 +3,7 @@
  * Copyright mfbproject.co.za - muzi@mfbproject.co.za
  * Copyright zulucoda - mfbproject
  */
+'use strict';
 const { readFileData } = require('../../shared/utils/read-file-data');
 
 const getTweets = async filePath => {

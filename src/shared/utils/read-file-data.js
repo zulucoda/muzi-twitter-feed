@@ -3,6 +3,7 @@
  * Copyright mfbproject.co.za - muzi@mfbproject.co.za
  * Copyright zulucoda - mfbproject
  */
+'use strict';
 const fs = require('fs');
 
 const readFileData = filename => {
