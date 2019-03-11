@@ -4,7 +4,7 @@
  * Copyright zulucoda - mfbproject
  */
 'use strict';
-const { getUsers } = require('./user.index');
+const { getUsersAndFollowers, getUsers } = require('./user.index');
 const path = require('path');
 
 describe('Users - Unit Test', () => {
@@ -13,8 +13,27 @@ describe('Users - Unit Test', () => {
     userFilePath = path.join('data', 'user.txt');
   });
 
-  it('should display users in user.txt', async () => {
-    const users = await getUsers(userFilePath);
+  it('should return users and followers in user.txt', async () => {
+    const users = await getUsersAndFollowers(userFilePath);
     expect(users).not.toBeNull();
+  });
+
+  describe('getUsers', () => {
+    it('should return users only', () => {
+      const userAndFollowers = `Ward follows Alan
+Alan follows Martin
+Ward follows Martin, Alan
+`;
+      const actual = getUsers(userAndFollowers);
+      const expected = ['Alan', 'Martin', 'Ward'];
+      expect(expected).toEqual(actual);
+    });
+
+    it('should return empty array when there is no data', () => {
+      const userAndFollowers = '';
+      const actual = getUsers(userAndFollowers);
+      const expected = [];
+      expect(expected).toEqual(actual);
+    });
   });
 });
