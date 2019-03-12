@@ -9,7 +9,7 @@
 * OS Ubuntu Linux 18.04 LTS
 
 ## Installation
-To install dependencies, navigate to the project root directory your console and execute the following command:
+To install dependencies, navigate to the project root directory in your console and execute the following command:
 ```shell
 yarn install
 ```
@@ -24,10 +24,12 @@ yarn test
 To run solution
 ```shell
 node index.js [full/path/to/user.txt] [full/path/to/tweet.txt]
+
+node index data/user.txt data/tweet.txt
 ```
 
 ---------------------
-## Solution / Tech Stack
+## Packages Used
 1. `chalk` - To add colour to console screen.
 2. `commander` - To display default help, and parse arguments.
 3. `jest` - For unit testing & coverage report.
