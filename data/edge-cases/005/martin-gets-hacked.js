@@ -4,9 +4,9 @@
  * Copyright zulucoda - mfbproject
  */
 const fs = require('fs');
-const file = fs.createWriteStream('./data/edge-cases/005/user.txt');
+const file = fs.createWriteStream('./data/edge-cases/005/tweet.txt');
 
-for (let i = 0; i <= 1e6; i++) {
+for (let i = 0; i <= 50000; i++) {
   file.write(
     'Martin> Martin, Gets hacked. Hackers use Martin to DDos twitter feed.\n',
   );
