@@ -43,14 +43,14 @@ Alan> Random numbers should not be generated with a method chosen at random.
         },
         { '': '' },
       ];
-      expect(expected).toEqual(actual);
+      expect(actual).toEqual(expected);
     });
 
     it('should return empty list object when no data', () => {
       const tweetData = ``;
       const actual = convertTweetsIntoList(tweetData);
       const expected = [{ '': '' }];
-      expect(expected).toEqual(actual);
+      expect(actual).toEqual(expected);
     });
   });
 });

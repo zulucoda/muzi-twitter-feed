@@ -30,14 +30,14 @@ Ward follows Martin, Alan
 `;
       const actual = getAllUniqueUsers(userAndFollowersData);
       const expected = ['Alan', 'Martin', 'Ward'];
-      expect(expected).toEqual(actual);
+      expect(actual).toEqual(expected);
     });
 
     it('should return empty array when there is no data', () => {
       const userAndFollowersData = '';
       const actual = getAllUniqueUsers(userAndFollowersData);
       const expected = [];
-      expect(expected).toEqual(actual);
+      expect(actual).toEqual(expected);
     });
   });
 
@@ -56,14 +56,14 @@ Ward follows Martin, Alan
           Alan: ['Martin'],
         },
       ];
-      expect(expected).toEqual(actual);
+      expect(actual).toEqual(expected);
     });
 
     it('should return empty users list and follows when no data', () => {
       const userAndFollowersData = '';
       const actual = getListOfUsersAndFollows(userAndFollowersData);
       const expected = [];
-      expect(expected).toEqual(actual);
+      expect(actual).toEqual(expected);
     });
   });
 });
