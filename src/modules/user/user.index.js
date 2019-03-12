@@ -24,17 +24,37 @@ const getAllUniqueUsers = userAndFollowersData => {
 };
 
 const getListOfUsersAndFollows = userAndFollowersData => {
-  const userDataArr = userAndFollowersData.split('\n').map(user => {
-    const userArr = user.split('follows');
+  const userDataArr = userAndFollowersData.split('\n');
+  const listOfUserAndFollows = [];
+  const cacheUser = {};
+  for (let i = 0; i < userDataArr.length; i++) {
+    const userArr = userDataArr[i].split('follows');
+    const userObj = {};
     if (userArr.length > 1) {
-      const userObj = {};
-      userObj[userArr[0].trim()] = userArr[1].trim().split(',');
-      return userObj;
+      const key = userArr[0].trim();
+      const val = userArr[1]
+        .trim()
+        .split(',')
+        .map(t => t.trim());
+      if (key in cacheUser) {
+        // append follows
+        const currentFollows = listOfUserAndFollows[cacheUser[key]];
+        const removeDuplicateFollows = new Set([
+          ...currentFollows[key],
+          ...val,
+        ]);
+        currentFollows[key] = Array.from(removeDuplicateFollows);
+        listOfUserAndFollows[cacheUser[key]] = currentFollows;
+      } else {
+        // create new
+        userObj[key] = val;
+        listOfUserAndFollows.push(userObj);
+        cacheUser[key] = listOfUserAndFollows.length - 1;
+      }
     }
-    return { '': '' };
-  });
-  const removeDuplicates = new Set(userDataArr);
-  console.log(removeDuplicates);
+  }
+
+  return listOfUserAndFollows;
 };
 
 module.exports = {

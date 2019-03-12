@@ -50,10 +50,19 @@ Ward follows Martin, Alan
       const actual = getListOfUsersAndFollows(userAndFollowersData);
       const expected = [
         {
-          Ward: ['Martin, Alan'],
+          Ward: ['Alan', 'Martin'],
+        },
+        {
           Alan: ['Martin'],
         },
       ];
+      expect(expected).toEqual(actual);
+    });
+
+    it('should return empty users list and follows when no data', () => {
+      const userAndFollowersData = '';
+      const actual = getListOfUsersAndFollows(userAndFollowersData);
+      const expected = [];
       expect(expected).toEqual(actual);
     });
   });
