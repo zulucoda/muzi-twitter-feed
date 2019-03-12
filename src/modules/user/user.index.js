@@ -5,6 +5,11 @@
  */
 'use strict';
 
+/**
+ * Get all unique users
+ * @param {String} userAndFollowersData
+ * @return {Array<String>}
+ */
 const getAllUniqueUsers = userAndFollowersData => {
   const userDataArr = userAndFollowersData
     .replace(/follows/gi, '\n')
@@ -18,6 +23,11 @@ const getAllUniqueUsers = userAndFollowersData => {
   return Array.from(removeDuplicates);
 };
 
+/**
+ * Get a list of users and the users they follow.
+ * @param {String} userAndFollowersData
+ * @return {Array<{key: Array<String>}>}
+ */
 const getListOfUsersAndFollows = userAndFollowersData => {
   const userDataArr = userAndFollowersData.split('\n');
   const listOfUserAndFollows = [];

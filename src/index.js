@@ -14,7 +14,6 @@ const {
   getListOfUsersAndFollows,
 } = require('./modules/user/user.index');
 const { convertTweetsIntoList } = require('./modules/tweet/tweet.index');
-
 const { getData } = require('./shared/utils/read-file-data');
 
 module.exports = {

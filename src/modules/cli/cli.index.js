@@ -16,6 +16,12 @@ const {
 } = require('./../../index');
 const chalk = require('chalk');
 
+/**
+ * Executes CLI twitter feed program with supplied arguments.
+ * @param {String} userFilePath
+ * @param {String} tweetFilePath
+ * @return {Promise.<void>}
+ */
 const run = async (userFilePath, tweetFilePath) => {
   try {
     const userData = await getUsersAndFollowers(userFilePath);

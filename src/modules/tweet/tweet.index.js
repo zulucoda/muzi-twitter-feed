@@ -5,6 +5,11 @@
  */
 'use strict';
 
+/**
+ * Convert Tweet Data into usable data set.
+ * @param {String} tweetData
+ * @return {Array<{key:value}>}
+ */
 const convertTweetsIntoList = tweetData => {
   return tweetData.split('\n').map(tweet => {
     const tweetArr = tweet.split('>');

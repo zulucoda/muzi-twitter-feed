@@ -10,6 +10,11 @@ const path = require('path');
 const USER_FILE_NAME = 'user.txt';
 const TWEET_FILE_NAME = 'tweet.txt';
 
+/**
+ * Check If supplied arguments are valid.
+ * @param {Array<String>} args
+ * @return {boolean}
+ */
 const checkIfCorrectParams = args => {
   const userFileName = path.basename(args[0]);
   const tweetFileName = path.basename(args[1]);

@@ -18,6 +18,11 @@ const _readFileData = filename => {
   });
 };
 
+/**
+ * Get file contents
+ * @param {string} filePath
+ * @return {Promise<String>}
+ */
 const getData = async filePath => {
   try {
     return await _readFileData(filePath);
