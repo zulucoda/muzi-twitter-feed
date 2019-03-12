@@ -17,11 +17,11 @@ const _getFollowsTweet = (listOfFollows, currentUserFollowsTweet) => {
 };
 
 const _flattenMapArr = mapArr => {
-  return mapArr.reduce((arrMap, arrMapFlatter) => {
+  return mapArr.reduce((arrMap, arrMapFlatten) => {
     return arrMap.concat(
-      Array.isArray(arrMapFlatter)
-        ? _flattenMapArr(arrMapFlatter)
-        : arrMapFlatter,
+      Array.isArray(arrMapFlatten)
+        ? _flattenMapArr(arrMapFlatten)
+        : arrMapFlatten,
     );
   }, []);
 };
