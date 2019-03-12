@@ -6,7 +6,7 @@
 'use strict';
 const fs = require('fs');
 
-const readFileData = filename => {
+const _readFileData = filename => {
   return new Promise((resolve, reject) => {
     fs.readFile(filename, 'utf8', (err, data) => {
       if (err) {
@@ -18,6 +18,14 @@ const readFileData = filename => {
   });
 };
 
+const getData = async filePath => {
+  try {
+    return await _readFileData(filePath);
+  } catch (err) {
+    throw err.message;
+  }
+};
+
 module.exports = {
-  readFileData,
+  getData,
 };

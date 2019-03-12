@@ -4,22 +4,16 @@
  * Copyright zulucoda - mfbproject
  */
 'use strict';
-const {
-  getUsersAndFollowers,
-  getAllUniqueUsers,
-  getListOfUsersAndFollows,
-} = require('./user.index');
+const { getAllUniqueUsers, getListOfUsersAndFollows } = require('./user.index');
+
+const { getData } = require('../../shared/utils/read-file-data');
+
 const path = require('path');
 
 describe('Users - Unit Test', () => {
   let userFilePath;
   beforeEach(() => {
     userFilePath = path.join('data', 'user.txt');
-  });
-
-  it('should return users and followers in user.txt', async () => {
-    const users = await getUsersAndFollowers(userFilePath);
-    expect(users).not.toBeNull();
   });
 
   describe('getAllUniqueUsers', () => {
@@ -42,7 +36,7 @@ Ward follows Martin, Alan
 
     describe('edge cases', () => {
       it('should return all unique user only and excluding "Alan\r" & "Martin\r" ', async () => {
-        const userAndFollowersData = await getUsersAndFollowers(userFilePath);
+        const userAndFollowersData = await getData(userFilePath);
         const actual = getAllUniqueUsers(userAndFollowersData);
         const expected = ['Alan', 'Martin', 'Ward'];
         expect(actual).toEqual(expected);

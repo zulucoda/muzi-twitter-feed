@@ -5,25 +5,25 @@
  */
 'use strict';
 const path = require('path');
-const { readFileData } = require('./read-file-data');
+const { getData } = require('./read-file-data');
 
 describe('Read File Data - Unit Test', () => {
-  describe('readFileData', () => {
+  describe('getData', () => {
     describe('resolve', () => {
       it('should read data from file and resolve promise with data', async () => {
         const userFilePath = path.join('data', 'user.txt');
-        const someData = await readFileData(userFilePath);
+        const someData = await getData(userFilePath);
         expect(someData).not.toBeNull();
       });
     });
 
-    describe('reject', () => {
+    describe('getData', () => {
       it('should reject promise with error when read data fails', async () => {
         const userFilePath = path.join('data', 'some-error-file.txt');
         try {
-          await readFileData(userFilePath);
+          await getData(userFilePath);
         } catch (err) {
-          expect(err.message).toContain(`Unable to process ${userFilePath}`);
+          expect(err).toContain(`Unable to process ${userFilePath}`);
         }
       });
     });

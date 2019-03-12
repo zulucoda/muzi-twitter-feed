@@ -4,22 +4,10 @@
  * Copyright zulucoda - mfbproject
  */
 'use strict';
-const { getTweets, convertTweetsIntoList } = require('./tweet.index');
+const { convertTweetsIntoList } = require('./tweet.index');
 const path = require('path');
 
 describe('Tweet - Unit Test', () => {
-  describe('getTweets', () => {
-    let tweetFilePath;
-    beforeEach(() => {
-      tweetFilePath = path.join('data', 'tweet.txt');
-    });
-
-    it('should return tweets in tweet.txt', async () => {
-      const tweets = await getTweets(tweetFilePath);
-      expect(tweets).not.toBeNull();
-    });
-  });
-
   describe('convertTweetsIntoList', () => {
     it('should convert tweets into object', () => {
       const tweetData = `Alan> If you have a procedure with 10 parameters, you probably missed some.

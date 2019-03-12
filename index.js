@@ -8,7 +8,28 @@
 
 'use strict';
 
-require('./src/modules/cli/cli.index').run(
-  '/home/muzikayise/workspace/Dev/A/allan-gray/code/muzi-twitter-feed/data/user.txt',
-  '/home/muzikayise/workspace/Dev/A/allan-gray/code/muzi-twitter-feed/data/tweet.txt',
-);
+const program = require('commander');
+const chalk = require('chalk');
+const { checkIfCorrectParams } = require('./src/modules/cli/utils/cli.utils');
+
+program
+  .description(chalk.bold.underline.cyan('CLI: Muzi twitter feed'))
+  .command(
+    chalk.bold.red('[user.txt] [tweet.txt]'),
+    chalk.bold.red(
+      'Please provide user.txt and tweet.txt files (e.g full/path/to/user.txt full/path/to/tweet.txt)',
+    ),
+  )
+  .parse(process.argv);
+
+const args = program.args;
+
+if (args.length < 2) {
+  program.help();
+  process.exit(1);
+} else if (!checkIfCorrectParams(args)) {
+  program.help();
+  process.exit(1);
+} else {
+  require('./src/modules/cli/cli.index').run(args[0], args[1]);
+}

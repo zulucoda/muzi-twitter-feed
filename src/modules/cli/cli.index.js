@@ -28,7 +28,9 @@ const run = async (userFilePath, tweetFilePath) => {
       listOfUserTweets,
     );
     displayTwitterFeed(twitterFeed);
-  } catch (err) {}
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 module.exports = {

@@ -4,11 +4,6 @@
  * Copyright zulucoda - mfbproject
  */
 'use strict';
-const { readFileData } = require('../../shared/utils/read-file-data');
-
-const getTweets = async filePath => {
-  return await readFileData(filePath);
-};
 
 const convertTweetsIntoList = tweetData => {
   return tweetData.split('\n').map(tweet => {
@@ -23,6 +18,5 @@ const convertTweetsIntoList = tweetData => {
 };
 
 module.exports = {
-  getTweets,
   convertTweetsIntoList,
 };

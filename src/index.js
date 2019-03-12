@@ -10,19 +10,17 @@ const {
 const {
   getAllUniqueUsers,
   getListOfUsersAndFollows,
-  getUsersAndFollowers,
 } = require('./modules/user/user.index');
-const {
-  getTweets,
-  convertTweetsIntoList,
-} = require('./modules/tweet/tweet.index');
+const { convertTweetsIntoList } = require('./modules/tweet/tweet.index');
+
+const { getData } = require('./shared/utils/read-file-data');
 
 module.exports = {
   getTwitterFeed,
   displayTwitterFeed,
   getAllUniqueUsers,
   getListOfUsersAndFollows,
-  getUsersAndFollowers,
-  getTweets,
+  getUsersAndFollowers: getData,
+  getTweets: getData,
   convertTweetsIntoList,
 };

@@ -5,12 +5,6 @@
  */
 'use strict';
 
-const { readFileData } = require('../../shared/utils/read-file-data');
-
-const getUsersAndFollowers = async filePath => {
-  return await readFileData(filePath);
-};
-
 const getAllUniqueUsers = userAndFollowersData => {
   const userDataArr = userAndFollowersData
     .replace(/follows/gi, '\n')
@@ -59,7 +53,6 @@ const getListOfUsersAndFollows = userAndFollowersData => {
 };
 
 module.exports = {
-  getUsersAndFollowers,
   getAllUniqueUsers,
   getListOfUsersAndFollows,
 };
