@@ -8,7 +8,7 @@
 
 'use strict';
 
-require('../src/modules/cli').run(
+require('./src/modules/cli/cli.index').run(
   '/home/muzikayise/workspace/Dev/A/allan-gray/code/muzi-twitter-feed/data/user.txt',
   '/home/muzikayise/workspace/Dev/A/allan-gray/code/muzi-twitter-feed/data/tweet.txt',
 );

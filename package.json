@@ -31,12 +31,15 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.{js}"
+      "<rootDir>/src/**/*.js"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js)$"
     ]
+  },
+  "dependencies": {
+    "commander": "^2.19.0"
   }
 }
