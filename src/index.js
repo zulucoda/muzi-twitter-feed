@@ -1,5 +1,24 @@
 /**
- * Created by Muzikayise Flynn Buthelezi (zuluCoda) on 2019/03/11.
+ * Created by Muzikayise Flynn Buthelezi (zuluCoda) on 2019/03/12.
  * Copyright mfbproject.co.za - muzi@mfbproject.co.za
  * Copyright zulucoda - mfbproject
  */
+const { getTwitterFeed } = require('./modules/user-tweet/user-tweet.index');
+const {
+  getAllUniqueUsers,
+  getListOfUsersAndFollows,
+  getUsersAndFollowers,
+} = require('./modules/user/user.index');
+const {
+  getTweets,
+  convertTweetsIntoList,
+} = require('./modules/tweet/tweet.index');
+
+module.exports = {
+  getTwitterFeed,
+  getAllUniqueUsers,
+  getListOfUsersAndFollows,
+  getUsersAndFollowers,
+  getTweets,
+  convertTweetsIntoList,
+};
