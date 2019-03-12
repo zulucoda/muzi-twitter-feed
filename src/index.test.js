@@ -10,12 +10,17 @@ const {
   getAllUniqueUsers,
   getTweets,
   convertTweetsIntoList,
+  displayTwitterFeed,
 } = require('./index');
 
 describe('Index - Unit Test', () => {
   describe('user-tweet', () => {
     it('should export getTwitterFeed', () => {
       expect(getTwitterFeed).toBeDefined();
+    });
+
+    it('should export displayTwitterFeed', () => {
+      expect(displayTwitterFeed).toBeDefined();
     });
   });
 

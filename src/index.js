@@ -3,7 +3,10 @@
  * Copyright mfbproject.co.za - muzi@mfbproject.co.za
  * Copyright zulucoda - mfbproject
  */
-const { getTwitterFeed } = require('./modules/user-tweet/user-tweet.index');
+const {
+  getTwitterFeed,
+  displayTwitterFeed,
+} = require('./modules/user-tweet/user-tweet.index');
 const {
   getAllUniqueUsers,
   getListOfUsersAndFollows,
@@ -16,6 +19,7 @@ const {
 
 module.exports = {
   getTwitterFeed,
+  displayTwitterFeed,
   getAllUniqueUsers,
   getListOfUsersAndFollows,
   getUsersAndFollowers,

@@ -78,9 +78,9 @@ const getTwitterFeed = (
 const displayTwitterFeed = twitterFeed => {
   twitterFeed.forEach(t => {
     for (const [key, value] of Object.entries(t)) {
-      console.log(`${key} \n`);
+      console.log(`${key} `);
       value.forEach(val => {
-        console.log(`       ${val}\n`);
+        console.log(`       ${val}`);
       });
     }
   });
