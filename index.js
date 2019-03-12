@@ -13,7 +13,7 @@ const chalk = require('chalk');
 const { checkIfCorrectParams } = require('./src/modules/cli/utils/cli.utils');
 
 program
-  .description(chalk.bold.underline.cyan('CLI: Muzi twitter feed'))
+  .description(chalk.bold.underline.green('CLI: Muzi twitter feed'))
   .command(
     chalk.bold.red('[user.txt] [tweet.txt]'),
     chalk.bold.red(

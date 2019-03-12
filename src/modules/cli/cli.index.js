@@ -3,6 +3,8 @@
  * Copyright mfbproject.co.za - muzi@mfbproject.co.za
  * Copyright zulucoda - mfbproject
  */
+'use strict';
+
 const {
   getUsersAndFollowers,
   getTweets,
@@ -12,6 +14,7 @@ const {
   getTwitterFeed,
   displayTwitterFeed,
 } = require('./../../index');
+const chalk = require('chalk');
 
 const run = async (userFilePath, tweetFilePath) => {
   try {
@@ -27,9 +30,12 @@ const run = async (userFilePath, tweetFilePath) => {
       listOfUsersAndFollows,
       listOfUserTweets,
     );
+
     displayTwitterFeed(twitterFeed);
   } catch (err) {
-    console.log(err);
+    console.log(chalk.bold.underline.green('CLI: Muzi twitter feed \n'));
+    console.log(chalk.bold.underline.red('An error occurred'));
+    console.log(chalk.bold.red(err));
   }
 };
 

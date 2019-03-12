@@ -3,6 +3,8 @@
  * Copyright mfbproject.co.za - muzi@mfbproject.co.za
  * Copyright zulucoda - mfbproject
  */
+'use strict';
+
 const path = require('path');
 
 const USER_FILE_NAME = 'user.txt';
