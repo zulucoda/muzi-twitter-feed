@@ -39,6 +39,15 @@ Ward follows Martin, Alan
       const expected = [];
       expect(actual).toEqual(expected);
     });
+
+    describe('edge cases', () => {
+      it('should return all unique user only and excluding "Alan\r" & "Martin\r" ', async () => {
+        const userAndFollowersData = await getUsersAndFollowers(userFilePath);
+        const actual = getAllUniqueUsers(userAndFollowersData);
+        const expected = ['Alan', 'Martin', 'Ward'];
+        expect(actual).toEqual(expected);
+      });
+    });
   });
 
   describe('getListOfUsersAndFollows', () => {

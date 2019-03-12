@@ -16,6 +16,7 @@ const getAllUniqueUsers = userAndFollowersData => {
     .replace(/follows/gi, '\n')
     .replace(/,/gi, '\n')
     .replace(/ /gi, '')
+    .replace(/\r/gi, '\n')
     .split('\n')
     .filter(x => x !== '')
     .sort((a, b) => a > b);
