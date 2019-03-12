@@ -37,6 +37,13 @@ const _getUserFollowsArr = (listOfUsersAndFollows, user) => {
   return _flattenMapArr(userFollowsMap);
 };
 
+/**
+ * Get twitter feed using, list of unique user, list of users and follows and user tweets
+ * @param {Array<String>} listOfUniqueUser
+ * @param {Array<{key:Array<String>}>} listOfUsersAndFollows
+ * @param {Array<{key:String}>} listOfUserTweets
+ * @return {Array<{key:Array<String>}>} twitter feed
+ */
 const getTwitterFeed = (
   listOfUniqueUser,
   listOfUsersAndFollows,
@@ -64,6 +71,22 @@ const getTwitterFeed = (
   });
 };
 
+/**
+ * Display twitter feed
+ * @param {Array<{key:Array<String>}>} twitterFeed
+ */
+const displayTwitterFeed = twitterFeed => {
+  twitterFeed.forEach(t => {
+    for (const [key, value] of Object.entries(t)) {
+      console.log(`${key} \n`);
+      value.forEach(val => {
+        console.log(`       ${val}\n`);
+      });
+    }
+  });
+};
+
 module.exports = {
   getTwitterFeed,
+  displayTwitterFeed,
 };
