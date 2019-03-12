@@ -41,6 +41,15 @@ Ward follows Martin, Alan
         const expected = ['Alan', 'Martin', 'Ward'];
         expect(actual).toEqual(expected);
       });
+      describe('001', () => {
+        it('should return all unique user only', async () => {
+          const filePath = path.join('data', 'edge-cases', '001', 'user.txt');
+          const userAndFollowersData = await getData(filePath);
+          const actual = getAllUniqueUsers(userAndFollowersData);
+          const expected = ['Alan', 'Martin', 'Ward'];
+          expect(actual).toEqual(expected);
+        });
+      });
     });
   });
 

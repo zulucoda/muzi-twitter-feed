@@ -13,7 +13,7 @@ const getAllUniqueUsers = userAndFollowersData => {
     .replace(/\r/gi, '\n')
     .split('\n')
     .filter(x => x !== '')
-    .sort((a, b) => a > b);
+    .sort((a, b) => (a > b ? 1 : a < b ? -1 : 0));
   const removeDuplicates = new Set(userDataArr);
   return Array.from(removeDuplicates);
 };
